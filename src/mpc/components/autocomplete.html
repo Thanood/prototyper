@@ -1,0 +1,15 @@
+<template>
+	<require from="aurelia-kendoui-bridge/autocomplete/autocomplete"></require>
+	<require from="aurelia-kendoui-bridge/common/template"></require>
+    
+    <p class="demo-hint" style="word-break: break-all">Type a name, available values in the list are: ${ items } </p>
+
+    <br>
+	<p><strong>People:</strong></p>
+    <ak-autocomplete k-data-source.bind="items">
+        <input style="width: 20%;">
+    </ak-autocomplete>
+    <br>
+    <br>
+    <br>
+</template>
