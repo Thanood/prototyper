@@ -66,12 +66,6 @@ gulp.task('watch', ['build'], function() {
     });
   });
 
-  watch('app/styles/**/*.less', function () {
-    reportChange();
-    runSequence('build-less', function () {
-      reload();
-    });
-  });
 });
 
 // reloads only the browser window

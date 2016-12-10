@@ -1,19 +1,24 @@
 {
   "name": "prototyper",
-  "version": "0.0.1",
-  "description": "Monterey mini used for rapid prototyping",
+  "version": "0.1.1",
+  "description": "Monterey mini-version, used for rapid prototypingof GUI comnponents",
   "keywords": [
     "aurelia",
     "monterey",
     "prototyping",
-    "typescript"
+    "typescript",
+    "gui"
   ],
   "homepage": "",
   "bugs": {
     "url": "https://github.com/monterey-framework/prototyper/issues"
   },
+  "main": "app/index.js",
   "license": "CC0-1.0",
-  "author": "aureliatools",
+  "author": {
+    "name": "aureliatools",
+    "email": "info@aureliatools.com"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/monterey-framework/prototyper"
@@ -28,6 +33,28 @@
   "directories": {
     "app": "app"
   },
+  "build": {
+    "appId": "monterey",
+    "app-category-type": "monterey",
+    "win": {
+      "iconUrl": "https://i.imgur.com/bC47YNC.png"
+    },
+    "mac": {
+      "contents": [
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 150,
+          "type": "file"
+        }
+      ]
+    }
+  },  
   "devDependencies": {
     "asar": "^0.11.0",
     "aurelia-bundler": "^0.4.0",

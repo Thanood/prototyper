@@ -1,0 +1,102 @@
+{
+ "name": "prototyper",
+  "version": "0.1.1",
+  "description": "Monterey mini-version, used for rapid prototypingof GUI comnponents",
+  "keywords": [
+    "aurelia",
+    "monterey",
+    "prototyping",
+    "typescript",
+    "gui"
+  ],
+  "homepage": "",
+  "bugs": {
+    "url": "https://github.com/monterey-framework/prototyper/issues"
+  },
+  "main": "index.js",
+  "license": "CC0-1.0",
+  "author": {
+    "name": "aureliatools",
+    "email": "info@aureliatools.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/monterey-framework/prototyper"
+  },
+  "jspm": {
+    "dependencies": {
+      "aurelia-animator-css": "npm:aurelia-animator-css@^1.0.0",
+      "aurelia-binding": "npm:aurelia-binding@^1.0.1",
+      "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.0",
+      "aurelia-dependency-injection": "npm:aurelia-dependency-injection@^1.0.0",
+      "aurelia-dialog": "npm:aurelia-dialog@^1.0.0-beta.1.1.0",
+      "aurelia-event-aggregator": "npm:aurelia-event-aggregator@^1.0.0",
+      "aurelia-fetch-client": "npm:aurelia-fetch-client@^1.0.0",
+      "aurelia-framework": "npm:aurelia-framework@^1.0.2",
+      "aurelia-history-browser": "npm:aurelia-history-browser@^1.0.0",
+      "aurelia-i18n": "npm:aurelia-i18n@^1.1.2",
+      "aurelia-loader-default": "npm:aurelia-loader-default@^1.0.0",
+      "aurelia-logging": "npm:aurelia-logging@^1.0.0",
+      "aurelia-logging-console": "npm:aurelia-logging-console@^1.0.0",
+      "aurelia-metadata": "npm:aurelia-metadata@^1.0.0",
+      "aurelia-pal": "npm:aurelia-pal@^1.0.0",
+      "aurelia-pal-browser": "npm:aurelia-pal-browser@^1.0.0",
+      "aurelia-polyfills": "npm:aurelia-polyfills@^1.0.0",
+      "aurelia-router": "npm:aurelia-router@^1.0.0",
+      "aurelia-task-queue": "npm:aurelia-task-queue@^1.0.0",
+      "aurelia-templating": "npm:aurelia-templating@^1.0.0",
+      "aurelia-templating-binding": "npm:aurelia-templating-binding@^1.0.0",
+      "aurelia-templating-resources": "npm:aurelia-templating-resources@^1.0.0",
+      "aurelia-templating-router": "npm:aurelia-templating-router@^1.0.0",
+      "aurelia-v-grid": "github:aurelia-ui-toolkits/aurelia-v-grid@^0.2.4",
+      "aurelia-validatejs": "npm:aurelia-validatejs@^0.6.0",
+      "aurelia-validation": "npm:aurelia-validation@^0.10.0",
+      "bootstrap": "github:twbs/bootstrap@3.3.6",
+      "context-menu": "github:monterey-framework/context-menu@^1.0.0",
+      "css": "github:systemjs/plugin-css@^0.1.27",
+      "dragula": "npm:dragula@^3.7.1",
+      "fetch": "github:github/fetch@^1.0.0",
+      "font-awesome": "npm:font-awesome@^4.6.3",
+      "i18next-xhr-backend": "npm:i18next-xhr-backend@^1.1.0",
+      "jquery": "npm:jquery@2.2.4",
+      "json": "github:systemjs/plugin-json@^0.1.2",
+      "moment": "npm:moment@2.14.1",
+      "monterey-pal": "github:monterey-framework/monterey-pal@^0.1.26",
+      "monterey-pal-electron": "github:monterey-framework/monterey-pal-electron@^0.1.49",
+      "semver": "npm:semver@^5.2.0",
+      "showdown": "github:showdownjs/showdown@^1.4.2",
+      "text": "github:systemjs/plugin-text@^0.0.3",
+      "toastr": "github:CodeSeven/toastr@2.1.2"
+    },
+    "devDependencies": {},
+    "overrides": {
+      "github:CodeSeven/toastr@2.1.2": {
+        "map": {
+          "jquery": "@empty"
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "pty.js": "https://github.com/Tyriar/pty.js/tarball/fffbf86eb9e8051b5b2be4ba9c7b07faa018ce8d"
+  },
+  "devDependencies": {
+    "aurelia-cli": "^0.13.6",
+    "electron-debug": "^1.0.1",
+    "electron-json-storage": "^2.0.0",
+    "electron-remote": "git+https://git@github.com/monterey-framework/electron-remote.git#0.5.12",
+    "electron-window-state-manager": "^0.3.0",
+    "fix-path": "^2.0.0",
+    "global-modules": "^0.2.3",
+    "jquery": "^1.12.3",
+    "jspm": "0.16.39",
+    "mv": "^2.1.1",
+    "open": "0.0.5",
+    "temp": "^0.8.3",
+    "tree-kill": "^1.1.0",
+    "unzip": "^0.1.11",
+    "xterm": "git+https://github.com/sourcelair/xterm.js.git#b32a34b",
+    "yargs": "^4.8.1",
+    "yauzl": "^2.6.0"
+  }
+}
