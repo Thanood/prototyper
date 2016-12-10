@@ -1,35 +1,29 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "rootDir": "src",
-    "outDir": "dist",
+    "rootDir": "app/src",
+    "outDir": "app/dist",
     "sourceMap": true,
-    "target": "es5",
-    "module": "amd",
+    "target": "es6",
+    "module": "commonjs",
     "declaration": false,
     "noImplicitAny": false,
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
-    "lib": ["es2015", "dom"],
-    "baseUrl": "./",
-    "paths": {
-      "src/*": ["src/*"]
-    }
+    "lib": ["es2015", "dom"]
   },
   "filesGlob": [
-    "./src/**/*.ts",
+    "./app/src/**/*.ts",
     "./test/**/*.ts",
     "./typings/index.d.ts",
-    "./custom_typings/**/*.d.ts",
-    "./jspm_packages/**/*.d.ts"
+    "./custom_typings/**/*.d.ts"
   ],
   "exclude": [
+    "app/node_modules",
     "node_modules",
-    "jspm_packages",
-    "dist",
-    "build"
+    "app/jspm_packages"
   ],
   "atom": {
     "rewriteTsconfig": false

@@ -1,0 +1,118 @@
+{
+  "name": "tether",
+  "description": "A client-side library to make absolutely positioned elements attach to elements in the page efficiently.",
+  "dist-tags": {
+    "latest": "1.4.0"
+  },
+  "versions": [
+    "0.5.2",
+    "0.6.5",
+    "0.7.1",
+    "0.7.2",
+    "1.0.0",
+    "1.0.1",
+    "1.0.2",
+    "1.0.3",
+    "1.1.0",
+    "1.1.1",
+    "1.2.0",
+    "1.2.2",
+    "1.2.3",
+    "1.2.4",
+    "1.3.0",
+    "1.3.1",
+    "1.3.2",
+    "1.3.3",
+    "1.3.4",
+    "1.3.5",
+    "1.3.6",
+    "1.3.7",
+    "1.3.8",
+    "1.3.9",
+    "1.4.0"
+  ],
+  "maintainers": [
+    "hs <devteam@hubspot.com>",
+    "timmfin <timmfin@timmfin.net>",
+    "zackbloom <zackbloom@gmail.com>"
+  ],
+  "time": {
+    "modified": "2016-12-02T22:22:59.004Z",
+    "created": "2014-01-30T20:37:54.251Z",
+    "0.5.2": "2014-01-30T20:38:05.767Z",
+    "0.6.5": "2014-08-20T00:06:26.324Z",
+    "0.7.1": "2015-05-09T03:43:20.050Z",
+    "0.7.2": "2015-05-13T14:19:34.471Z",
+    "1.0.0": "2015-06-07T20:49:58.838Z",
+    "1.0.1": "2015-06-07T23:58:28.145Z",
+    "1.0.2": "2015-06-09T14:51:05.249Z",
+    "1.0.3": "2015-07-13T14:33:37.938Z",
+    "1.1.0": "2015-07-18T22:30:55.606Z",
+    "1.1.1": "2015-10-13T02:03:43.012Z",
+    "1.2.0": "2016-02-18T14:44:52.396Z",
+    "1.2.2": "2016-04-14T20:57:42.811Z",
+    "1.2.3": "2016-04-19T21:09:10.777Z",
+    "1.3.0": "2016-04-19T21:12:20.724Z",
+    "1.3.1": "2016-04-19T22:26:18.376Z",
+    "1.2.4": "2016-04-20T14:34:21.515Z",
+    "1.3.2": "2016-04-28T17:54:02.233Z",
+    "1.3.3": "2016-07-14T18:01:35.941Z",
+    "1.3.4": "2016-08-03T15:59:22.292Z",
+    "1.3.5": "2016-08-31T20:54:14.893Z",
+    "1.3.6": "2016-09-01T17:43:24.408Z",
+    "1.3.7": "2016-09-02T16:20:44.841Z",
+    "1.3.8": "2016-11-28T17:05:21.419Z",
+    "1.3.9": "2016-12-02T18:06:04.401Z",
+    "1.4.0": "2016-12-02T22:22:59.004Z"
+  },
+  "readmeFilename": "README.md",
+  "license": "MIT",
+  "users": {
+    "maximilianschmitt": true,
+    "maxidr": true,
+    "aldofunes": true,
+    "codebruder": true,
+    "largepuma": true
+  },
+  "homepage": "https://github.com/HubSpot/tether#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HubSpot/tether.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HubSpot/tether/issues"
+  },
+  "version": "1.4.0",
+  "authors": [
+    "Zack Bloom <zackbloom@gmail.com>",
+    "Adam Schwartz <adam.flynn.schwartz@gmail.com>"
+  ],
+  "scripts": {
+    "reinstall": "del node_modules && npm install",
+    "watch": "gulp watch",
+    "build": "gulp build"
+  },
+  "main": "dist/js/tether.js",
+  "devDependencies": {
+    "del": "^2.0.2",
+    "del-cli": "^0.2.0",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.0.1",
+    "gulp-babel": "^5.2.1",
+    "gulp-bump": "^0.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-header": "^1.7.1",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-plumber": "^1.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.0.4",
+    "gulp-uglify": "^1.4.1",
+    "gulp-wrap-umd": "^0.2.1"
+  },
+  "gitHead": "3d7119e590661f8c9e9e566c8a7640c189687215",
+  "dist": {
+    "shasum": "0f9fa171f75bf58485d8149e94799d7ae74d1c1a",
+    "tarball": "https://registry.npmjs.org/tether/-/tether-1.4.0.tgz"
+  },
+  "directories": {}
+}

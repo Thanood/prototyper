@@ -1,0 +1,94 @@
+{
+  "name": "drop",
+  "description": "node.js ripple client",
+  "dist-tags": {
+    "latest": "0.2.6"
+  },
+  "versions": [
+    "0.0.1",
+    "0.0.2",
+    "0.0.3",
+    "0.0.4",
+    "0.0.5",
+    "0.0.6",
+    "0.0.7",
+    "0.0.8",
+    "0.0.9",
+    "0.0.10",
+    "0.0.11",
+    "0.0.12",
+    "0.0.13",
+    "0.0.14",
+    "0.1.0",
+    "0.1.1",
+    "0.1.2",
+    "0.2.1",
+    "0.2.2",
+    "0.2.3",
+    "0.2.4",
+    "0.2.5",
+    "0.2.6"
+  ],
+  "maintainers": [
+    "abrkn <a@abrkn.com>"
+  ],
+  "time": {
+    "modified": "2013-10-28T12:35:50.261Z",
+    "created": "2013-03-03T12:00:25.090Z",
+    "0.0.1": "2013-03-03T12:00:32.251Z",
+    "0.0.2": "2013-03-04T14:36:29.042Z",
+    "0.0.3": "2013-03-04T15:21:04.536Z",
+    "0.0.4": "2013-03-05T08:42:28.972Z",
+    "0.0.5": "2013-03-05T09:31:52.166Z",
+    "0.0.6": "2013-03-05T09:59:18.440Z",
+    "0.0.7": "2013-03-05T10:01:54.849Z",
+    "0.0.8": "2013-03-05T10:07:06.682Z",
+    "0.0.9": "2013-03-05T10:13:46.295Z",
+    "0.0.10": "2013-03-05T17:25:14.875Z",
+    "0.0.11": "2013-03-05T17:29:12.498Z",
+    "0.0.12": "2013-03-05T17:30:20.260Z",
+    "0.0.13": "2013-03-06T11:23:12.939Z",
+    "0.0.14": "2013-04-11T13:00:46.883Z",
+    "0.1.0": "2013-04-12T06:28:26.082Z",
+    "0.1.1": "2013-04-18T07:14:39.255Z",
+    "0.1.2": "2013-04-18T07:34:58.676Z",
+    "0.2.1": "2013-06-26T19:33:50.165Z",
+    "0.2.2": "2013-06-26T19:38:04.168Z",
+    "0.2.3": "2013-06-26T19:44:14.086Z",
+    "0.2.4": "2013-06-26T20:31:51.053Z",
+    "0.2.5": "2013-07-08T09:00:54.108Z",
+    "0.2.6": "2013-10-28T12:35:50.261Z"
+  },
+  "author": "Andreas Brekken <a@abrkn.com>",
+  "version": "0.2.6",
+  "scripts": {
+    "test": "mocha"
+  },
+  "bin": {
+    "drop": "./bin/drop"
+  },
+  "dependencies": {
+    "extend": "~1.1.3",
+    "debug": "~0.7.2",
+    "lodash": "~1.3.1",
+    "num": "~0.2.1",
+    "optimist": "~0.5.2",
+    "konfu": "~1.1.4",
+    "ws": "~0.4.25"
+  },
+  "devDependencies": {
+    "mocha": "~1.11.0",
+    "expect.js": "~0.2.0"
+  },
+  "engines": {
+    "node": "0.8.x",
+    "npm": ">=1.1.0"
+  },
+  "readme": "drop\r\n===\r\n\r\n[Ripple](https://ripple.com) library for node.js\r\n\r\n[![Build Status](https://travis-ci.org/abrkn/drop.png)](https://travis-ci.org/abrkn/drop)\r\n\r\nCLI\r\n---\r\n\r\n`npm install -g drop`\r\n\r\nAccount and secret can be specified with the `--account` and `--secret` options.\r\n\r\n### Subscribe\r\n\r\n`drop subscribe --account rG4muW7MgLqFV1VgzJ7sJ6ADr3xAAPujVi`\r\n\r\nSubscribe to transactions to/from account. Transactions are printed to the console.\r\n\r\nCancel with CTRL-C.\r\n\r\n### Ping\r\n\r\nPing the Ripple server. Outputs ping time in milliseconds.\r\n\r\n```\r\ndrop ping\r\n121 ms\r\n```\r\n\r\n### Account transactions\r\n\r\n```\r\n// Fetch transactions for account between ledger index 5000 and 7000.\r\ndrop transactions 5000 7000\r\n{ ... }\r\n\r\n// Fetch transactions from ledger 5000 to last validated ledger.\r\ndrop transactions 5000\r\n```\r\n\r\n\r\n### Create offer\r\n\r\n```\r\n// Create an offer to give 7000 XRP for someone's 1.5 BTC/rJHygWcTLVpSXkowott6kzgZU6viQSVYM1.\r\n// Note that BTC/xxx means BTC issued by xxx.\r\ndrop offer 7000 XRP 1.5 BTC/rJHygWcTLVpSXkowott6kzgZU6viQSVYM1\r\n1234\r\n```\r\n\r\nOutputs the sequence number of the offer to the console.\r\n\r\n### Cancel offer\r\n\r\n```\r\n// Cancel order with sequence number 1234.\r\ndrop cancel 1234\r\nOK\r\n```\r\n\r\n### Send\r\n\r\nSend funds to another account. Outputs transaction hash.\r\n\r\n```\r\n// Send 10.5 XRP to rJHygWcTLVpSXkowott6kzgZU6viQSVYM1 with a destination tag of 16\r\ndrop send 10.5XRP rJHygWcTLVpSXkowott6kzgZU6viQSVYM1\r\nDF59AD3758CAE8C01E950D586FCA40BFA4F0AD7DDD12380B5DDDA46DECE42042\r\n\r\n// Send 3500 XRP to rJHygWcTLVpSXkowott6kzgZU6viQSVYM1 with a destination tag of 16\r\ndrop send 3500 XRP rJHygWcTLVpSXkowott6kzgZU6viQSVYM1:16\r\nDF59AD3758CAE8C01E950D586FCA40BFA4F0AD7DDD12380B5DDDA46DECE42042\r\n\r\n// Send 750.1 BTC issued by rJHygWcTLVpSXkowott6kzgZU6viQSVYM1 to rG4muW7MgLqFV1VgzJ7sJ6ADr3xAAPujVi\r\ndrop send 750.1 BTC/rJHygWcTLVpSXkowott6kzgZU6viQSVYM1 rG4muW7MgLqFV1VgzJ7sJ6ADr3xAAPujVi\r\n```\r\n\r\nAPI\r\n---\r\n\r\nSee `bin/drop` for example code.\r\n\r\nTest\r\n---\r\n\r\n`npm test`\r\n",
+  "readmeFilename": "README.markdown",
+  "dist": {
+    "shasum": "b581983b156571576d2df1f98eb527ff4b006216",
+    "tarball": "https://registry.npmjs.org/drop/-/drop-0.2.6.tgz"
+  },
+  "directories": {}
+}

@@ -4,8 +4,6 @@ var tslint = require('gulp-tslint');
 
 gulp.task('lint', function() {
   return gulp.src(paths.source)
-    .pipe(tslint({
-      emitError: false
-    }))
-    .pipe(tslint.report());
+    .pipe(tslint())
+    .pipe(tslint.report('prose'));
 });
