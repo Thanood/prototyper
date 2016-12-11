@@ -14,6 +14,7 @@ var params;
 gulp.task('watch', ['build'], function() {
   params = [argv.env ? `--env=${argv.env}` : '--env=development'];
   _reload = argv.manual ? false : true;
+  console.log('params = ' + params);
   electron.start(params);
 
   watch(paths.source, function () {

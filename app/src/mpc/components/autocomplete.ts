@@ -1,7 +1,7 @@
 export class Autocomplete {
   public items = [
     'aurelia-kendoui-bridge',
-    'aurelia-materializebridge',
+    'aurelia-materialize-bridge',
     'bootstrap3',
     'd3',
     'dragula',
