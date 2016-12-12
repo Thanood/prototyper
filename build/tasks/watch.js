@@ -15,6 +15,8 @@ gulp.task('watch', ['build'], function() {
   params = [argv.env ? `--env=${argv.env}` : '--env=development'];
   _reload = argv.manual ? false : true;
   console.log('params = ' + params);
+  console.log('_reload = ' + _reload);
+
   electron.start(params);
 
   watch(paths.source, function () {
@@ -83,6 +85,5 @@ function restart() {
 
 // outputs changes to files to the console
 function reportChange(event) {
-  console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+    console.log('File changed, running tasks...');
 }
-

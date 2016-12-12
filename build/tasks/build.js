@@ -37,6 +37,16 @@ gulp.task('build-html', function() {
     .pipe(gulp.dest(paths.output));
 });
 
+gulp.task('build-less', function() {
+  return gulp.src(['app/styles/less/layout/index.less'])
+    .pipe(sourcemaps.init())
+    .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
+    .pipe(less())
+    .pipe(rename('layout.css'))
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest(paths.styles));
+});
+
 // copies changed css files to the output directory
 gulp.task('build-css', function() {
   return gulp.src(paths.css)
@@ -58,7 +68,20 @@ gulp.task('build-json', function() {
 gulp.task('build', function(callback) {
   return runSequence(
     'clean',
-    ['build-system', 'build-html', 'build-css', 'build-json'],
+    ['build-system', 'build-html', 'build-less', 'build-json'],
+    callback
+  );
+});
+
+
+// this task calls the clean task (located
+// in ./clean.js), then runs the build-system
+// and build-html tasks in parallel
+// https://www.npmjs.com/package/gulp-run-sequence
+gulp.task('build', function(callback) {
+  return runSequence(
+    'clean',
+    ['build-system', 'build-html', 'build-less', 'build-css', 'build-json'],
     callback
   );
 });
