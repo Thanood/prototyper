@@ -27,7 +27,16 @@ export class MpcComponent {
   }
 
   public versions = [
-
+    "3.2.1",
+    "4.0.3",
+    "4.1.0",
+    "4.2.0",
+    "4.3.0",
+    "4.4.0",
+    "4.5.0",
+    "4.6.1",
+    "4.6.3",
+    "4.7.0"
   ]
 
   dataSource = new kendo.data.DataSource({
