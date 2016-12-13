@@ -1,0 +1,20 @@
+.mpc-box {
+  height: 500px;
+  margin: 50px auto 0px auto;
+  padding: 20px;
+  border: 1px solid #7bab2e;
+  background-color: #d8ecb9;
+}
+.centeredObject {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.separatorOnRight {
+  border-top-style: none;
+  border-right-style: solid black;
+  border-bottom-style: none;
+  border-left-style: none;
+}
+
+/*# sourceMappingURL=prototyper.css.map */

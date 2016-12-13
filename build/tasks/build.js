@@ -8,6 +8,7 @@ var paths = require('../paths');
 var assign = Object.assign || require('object.assign');
 var notify = require('gulp-notify');
 var rename = require('gulp-rename');
+var less = require('gulp-less');
 
 // transpiles changed es6 files to SystemJS format
 // the plumber() call prevents 'pipe breaking' caused
@@ -38,11 +39,11 @@ gulp.task('build-html', function() {
 });
 
 gulp.task('build-less', function() {
-  return gulp.src(['app/styles/less/layout/index.less'])
+  return gulp.src(['app/styles/less/prototyper/index.less'])
     .pipe(sourcemaps.init())
     .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
     .pipe(less())
-    .pipe(rename('layout.css'))
+    .pipe(rename('prototyper.css'))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(paths.styles));
 });

@@ -14,8 +14,6 @@ var params;
 gulp.task('watch', ['build'], function() {
   params = [argv.env ? `--env=${argv.env}` : '--env=development'];
   _reload = argv.manual ? false : true;
-  console.log('params = ' + params);
-  console.log('_reload = ' + _reload);
 
   electron.start(params);
 
@@ -65,6 +63,13 @@ gulp.task('watch', ['build'], function() {
   watch(paths.html, function () {
     reportChange();
     runSequence('build-html', function () {
+      reload();
+    });
+  });
+
+  watch(paths.less, function () {
+    reportChange();
+    runSequence('build-less', function () {
       reload();
     });
   });

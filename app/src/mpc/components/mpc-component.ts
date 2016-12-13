@@ -1,4 +1,6 @@
-export class Autocomplete {
+//import "kendo.ui.datasource";
+
+export class MpcComponent {
   public items = [
     'aurelia-kendoui-bridge',
     'aurelia-materialize-bridge',
@@ -23,4 +25,14 @@ export class Autocomplete {
       console.log('Detected browser environment');
     }
   }
+
+  public versions = [
+
+  ]
+
+  dataSource = new kendo.data.DataSource({
+    data: this.versions,
+    pageSize: 10
+  });
+
 }

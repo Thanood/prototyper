@@ -1,0 +1,43 @@
+<template>
+	<require from="aurelia-kendoui-bridge/autocomplete/autocomplete"></require>
+	<require from="aurelia-kendoui-bridge/common/template"></require>
+    <require from="aurelia-kendoui-bridge/listview/listview"></require>
+    <require from="aurelia-kendoui-bridge/common/template"></require>
+    <require from="aurelia-kendoui-bridge/button/button"></require>
+    
+ 
+    <div class="mpc-box" >
+        <div class="row" style="height: 470px ">
+            <div class="col-sm-3">
+                <p class="demo-hint" style="word-break: break-all"><b>Any of:</b>md ${ items } </p>
+                <br>
+            	<p><strong>Package</strong></p>
+                <ak-autocomplete k-data-source.bind="items">
+                    <input style="width: 90%;">
+                </ak-autocomplete>
+            </div>
+
+            <div class="col-sm-3">
+                <div style="border-right: solid; height:470px">   
+                    <p><strong>Version</strong></p>
+                    <ak-list-view k-data-source.bind="dataSource">
+                        <ak-template>
+                          <div>
+         
+                          </div>
+                        </ak-template>
+                    </ak-list-view>
+                </div>              
+           </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <button ak-button class="centeredObject">Add this package / version pair</button>
+            </div>
+        </div>             
+
+        </div>
+    </div>
+
+</template>

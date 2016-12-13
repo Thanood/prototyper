@@ -1,5 +1,5 @@
 "use strict";
-class Autocomplete {
+class MpcComponent {
     constructor() {
         this.items = [
             'aurelia-kendoui-bridge',
@@ -15,6 +15,11 @@ class Autocomplete {
             'mdl',
             'tether'
         ];
+        this.versions = [];
+        this.dataSource = new kendo.data.DataSource({
+            data: this.versions,
+            pageSize: 10
+        });
     }
     bind() {
         const nodeRequire = (window.System)._nodeRequire;
@@ -27,6 +32,6 @@ class Autocomplete {
         }
     }
 }
-exports.Autocomplete = Autocomplete;
+exports.MpcComponent = MpcComponent;
 
-//# sourceMappingURL=autocomplete.js.map
+//# sourceMappingURL=mpc-component.js.map
