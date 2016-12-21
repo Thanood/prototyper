@@ -39,13 +39,6 @@ class VersionChooser {
         ];
         this.datasource = new kendo.data.DataSource({
             data: this.versions,
-            schema: {
-                model: {
-                    fields: {
-                        VersionNumber: { type: 'string' }
-                    }
-                }
-            },
             pageSize: 40
         });
     }
@@ -53,7 +46,7 @@ class VersionChooser {
         let grid = e.sender;
         let selectedRow = grid.select();
         let dataItem = grid.dataItem(selectedRow);
-        alert(dataItem.VersionNumber);
+        alert(dataItem);
     }
 }
 exports.VersionChooser = VersionChooser;

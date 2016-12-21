@@ -4,10 +4,10 @@
 
     <div class="mpc-box">
 
-		<ak-grid k-data-source.bind="versionsArray"
+		<ak-grid k-data-source.bind="datasource"
 		      k-selectable="row"
 		      k-on-change.delegate="rowSelected($event.detail)">
-			<ak-col k-title="Version" k-field="VersionNumber"></ak-col>
+			<ak-col k-title="Version" k-field="$dataItem"></ak-col>
 		</ak-grid>
     </div>
 </template>

@@ -2,22 +2,7 @@ export class VersionChooser {
 
 	datasource: kendo.data.DataSource;
 
-	constructor() {
-		this.datasource = new kendo.data.DataSource({
-			data: this.versions,
-			schema: {
-		    	model: {
-	    			fields: {
-						VersionNumber: {type: 'string'}
-	    			}
-		    	}
-	    	},
-	    	pageSize: 40			
-		});
-
-	}
-
-	public versions: string[] = [
+	private versions: string[] = [
 		"3.2.1",
 		"4.0.3",
 		"4.1.0",
@@ -54,10 +39,18 @@ export class VersionChooser {
 		"4.8.4",
 	]
 
+	constructor() {
+		this.datasource = new kendo.data.DataSource({
+			data: this.versions,
+	    	pageSize: 40			
+		});
+
+	}
+
 	rowSelected(e) {
 	    let grid = e.sender;
 	    let selectedRow = grid.select();
 	    let dataItem = grid.dataItem(selectedRow);
-	    alert(dataItem.VersionNumber);
+	    alert(dataItem);
 	}
 }
