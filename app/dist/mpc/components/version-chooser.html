@@ -1,0 +1,13 @@
+<template>
+	<require from="aurelia-kendoui-bridge/grid/grid"></require>
+	<require from="aurelia-kendoui-bridge/grid/col"></require>	
+
+    <div class="mpc-box">
+
+		<ak-grid k-data-source.bind="versionsArray"
+		      k-selectable="row"
+		      k-on-change.delegate="rowSelected($event.detail)">
+			<ak-col k-title="Version" k-field="VersionNumber"></ak-col>
+		</ak-grid>
+    </div>
+</template>

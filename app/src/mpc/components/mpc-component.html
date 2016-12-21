@@ -1,50 +1,38 @@
 <template>
-	<require from="aurelia-kendoui-bridge/autocomplete/autocomplete"></require>
-	<require from="aurelia-kendoui-bridge/common/template"></require>
-    <require from="aurelia-kendoui-bridge/listview/listview"></require>
-    <require from="aurelia-kendoui-bridge/common/template"></require>
     <require from="aurelia-kendoui-bridge/button/button"></require>
+
+    <require from="./package-chooser"></require>
+    <require from="./version-chooser"></require>
+    <require from="./collector-component"></require>
     
- 
-    <div class="mpc-box" >
-        <div class="row" style="height: 470px ">
-            <div class="col-sm-3">
-                <p class="demo-hint" style="word-break: break-all"><b>Any of:</b>md ${ items } </p>
-                <br>
-            	<p><strong>Package</strong></p>
-                <ak-autocomplete k-data-source.bind="items">
-                    <input style="width: 90%;">
-                </ak-autocomplete>
-            </div>
 
-            <div class="col-sm-3">
-                <div style="height:470px">   
-                    <p><strong>Version</strong></p>
-                    <ak-list-view k-data-source.bind="dataSource">
-                        <ak-template>
-                          <div>
-                              &nbsp;&nbsp;&nbsp;&nbsp;${dataItem}
-                          </div>
-                        </ak-template>
-                    </ak-list-view>
-
-                    <div ref="pager" class="k-pager-wrap"></div>
-                </div> 
-
-            </div>
-
-            <div class="col-sm-1">
-                <div style="border-right: solid; width: 1px; height:470px">   
-            </div>
-
-        </div>
+    <div class="container" style="border: 0px solid black">
         <div class="row">
-            <div class="col-sm-7">
-                <button ak-button class="centeredObject">Add this package / version pair</button>
+            <div class="col-xs-3">
+                <package-chooser></package-chooser>
             </div>
-        </div>             
-
+            <div class="col-xs-2">
+                <version-chooser></version-chooser>
+            </div>
+           <div class="col-xs-5">
+                <collector-component></collector-component>
+            </div>            
         </div>
+        <div class="row flex-items-xs-center">
+            <div class="col-xs-5">
+                <a ak-button="k-enable.bind: false">Add this pair</a>
+            </div>
+            <div >
+                <a ak-button="k-enable.bind: false">Remove selected packages</a>            
+            </div>            
+        </div>
+        <p></p>
+        <div class="row flex-items-xs-center">
+            <div style="margin-bottom: 20px">
+                <button ak-button>Create project</button>
+            </div>
+    
+        </div>        
     </div>
 
 </template>

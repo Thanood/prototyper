@@ -1,13 +1,14 @@
-'aurelia-kendoui-bridge.json',
-'aurelia-materializebridge.json',
-'bootstrap3.json',
-'d3.json',
-'dragula.json',
-'drop.json',
-'font-awesome.json',
-'jquery-ui.json',
-'jquery.json',
-'lodash.json',
-'mdl.json',
-'tether.json'
-
+[
+	"aurelia-kendoui-bridge.json",
+	"aurelia-materializebridge.json",
+	"bootstrap3.json",
+	"d3.json",
+	"dragula.json",
+	"drop.json",
+	"font-awesome.json",
+	"jquery-ui.json",
+	"jquery.json",
+	"lodash.json",
+	"mdl.json",
+	"tether.json"
+]

@@ -1,9 +1,10 @@
 .mpc-box {
-  height: 500px;
-  margin: 50px auto 0px auto;
+  height: 400px;
+  margin: 20px auto 0px auto;
   padding: 20px;
   border: 1px solid #7bab2e;
   background-color: #d8ecb9;
+  margin-bottom: 20px;
 }
 .centeredObject {
   margin-left: auto;
