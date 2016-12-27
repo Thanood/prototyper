@@ -1,4 +1,5 @@
 export class PackageChooser {
+  
   public items = [
     'aurelia-kendoui-bridge',
     'aurelia-materialize-bridge',
@@ -13,4 +14,10 @@ export class PackageChooser {
     'mdl',
     'tether'
   ]
+
+  onSelect(e) {
+    let autocomplete = e.sender;
+    let dataItem = autocomplete.dataItem(e.item.index());
+    alert(dataItem);
+  }  
 }

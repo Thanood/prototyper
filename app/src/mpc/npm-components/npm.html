@@ -1,0 +1,31 @@
+<template>
+	<require from="aurelia-kendoui-bridge/tabstrip/tabstrip"></require>
+	<require from="../basic-components/mpc-component"></require>
+	<section >
+
+	<div id="tabstrip" ak-tabstrip="k-animation.bind: { open: { effects: 'fadeIn' } }" ak-tabstrip.ref="tabstripVM">
+		<ul>
+			<li class="k-state-active">
+				Add packages
+			</li>
+			<li>
+				Manage versions
+			</li>
+		</ul>
+
+		<div>
+		    <div >
+		    	<mpc-component></mpc-component>
+		    </div>
+		</div>
+
+		<div>
+		    <div >
+		    	<h4>Manage versions</h4>
+		    </div>
+		</div>
+	</div>
+
+	</section>
+
+</template>

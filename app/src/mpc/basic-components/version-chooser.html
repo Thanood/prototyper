@@ -3,11 +3,13 @@
 	<require from="aurelia-kendoui-bridge/grid/col"></require>	
 
     <div class="mpc-box">
-
+        <p>List of versions</p>
+        <!-- Note that "scrollable" object is being bound to the grid -->
 		<ak-grid k-data-source.bind="datasource"
 		      k-selectable="row"
+		      k-scrollable.bind="scrollable"
 		      k-on-change.delegate="rowSelected($event.detail)">
-			<ak-col k-title="Version" k-field="$dataItem"></ak-col>
+			<ak-col k-title="Version" k-field="ver"></ak-col>
 		</ak-grid>
     </div>
 </template>

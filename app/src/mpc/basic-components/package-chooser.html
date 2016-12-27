@@ -3,10 +3,10 @@
 	<require from="aurelia-kendoui-bridge/common/template"></require>
 
 	<div class="mpc-box" >
-		Package
-		<br><br>
-		<ak-autocomplete k-data-source.bind="items">
-		    <input style="width: 90%;">
+		<p>Package</p>
+		<ak-autocomplete k-data-source.bind="items"
+						 k-on-select.delegate="onSelect($event.detail)"
+		    <input style="width: 98%;">
 		</ak-autocomplete>
 	</div>
 

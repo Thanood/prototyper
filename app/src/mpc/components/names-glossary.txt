@@ -1,4 +1,0 @@
-MPC - Monterey Package Chooser
-
-PVC - Package Version Chooser
-

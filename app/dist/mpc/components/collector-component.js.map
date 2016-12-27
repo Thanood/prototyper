@@ -1,1 +1,0 @@
-{"version":3,"sources":["mpc/components/collector-component.ts"],"names":[],"mappings":";AAAA;CAEC;AAFD,gDAEC","file":"collector-component.js","sourcesContent":["export class CollectorComponent {\r\n\t\r\n}"],"sourceRoot":"/app/src"}

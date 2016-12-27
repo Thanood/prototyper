@@ -3,9 +3,13 @@ jspm_packages
 bower_components
 .idea
 .DS_STORE
-/dist
+/app/dist
 build/reports
 coverage
 test/e2e/dist
+/app/styles/*.css
+/app/styles/*.css.map
 /typings
-/export
+app/export
+/dist/
+app/dist

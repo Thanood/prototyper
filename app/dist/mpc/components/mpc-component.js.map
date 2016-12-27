@@ -1,1 +1,0 @@
-{"version":3,"sources":["mpc/components/mpc-component.ts"],"names":[],"mappings":";AAAA;CAEC;AAFD,oCAEC","file":"mpc-component.js","sourcesContent":["export class MpcComponent {\r\n\r\n}"],"sourceRoot":"/app/src"}
