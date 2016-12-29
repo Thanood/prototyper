@@ -1,8 +1,10 @@
 import {computedFrom} from 'aurelia-framework';
+import {CollectorComponent} from './collector-component';
 
 export class MpcComponent {
   public selectedPackage: string = null;
   public selectedVersion: string = null;
+  public collector: CollectorComponent;
 
   @computedFrom('selectedPackage', 'selectedVersion')
   public get isAddPairButtonEnabled() {
@@ -20,7 +22,11 @@ export class MpcComponent {
     this.selectedVersion = dataItem;
   }
 
-  public addThisPair() {
-    alert(`add: ${this.selectedPackage}@${this.selectedVersion}`);
+  public addPair() {
+    this.collector.addPackage(this.selectedPackage, this.selectedVersion);
+  }
+
+  public removeSelected() {
+    this.collector.removeSelectedPackages();
   }
 }

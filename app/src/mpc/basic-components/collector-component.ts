@@ -1,7 +1,6 @@
+import {bindable} from 'aurelia-framework';
+
 export class CollectorComponent {
-
-  //datasource: kendo.data.DataSource;
-
   public scrollable = { virtual: true };
 
   private testData = [];
@@ -25,9 +24,23 @@ export class CollectorComponent {
 
   constructor() {
     this.testData = [
-      { fModule: 'aurelia-kendoui-bridge', fVersion: '1.0.1' }
-    ]
-
+      { fModule: 'aurelia-kendoui-bridge', fVersion: '1.0.1' },
+      { fModule: 'aurelia-materialize-bridge', fVersion: '0.1.2' }
+    ];
   };
 
+  public addPackage(module: string, version: string) {
+    // this.testData.push({ module: name, fVersion: version });
+    // this.datasource.data(this.testData);
+    this.datasource.pushCreate({ fModule: module, fVersion: version });
+  }
+
+  public removeSelectedPackages() {
+    const d = this.datasource.data();
+    d.forEach(item => {
+      if (item.fSelected) {
+        this.datasource.remove(item);
+      }
+    });
+  }
 }
