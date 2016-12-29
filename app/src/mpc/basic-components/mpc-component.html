@@ -20,11 +20,11 @@
         </div>
         <div class="row flex-items-xs-center">
             <div class="col-xs-5">
-                <button ak-button="k-enable.bind: isAddPairButtonEnabled" click.delegate="addThisPair()">Add this pair</button>
+                <button ak-button="k-enabled.bind: isAddPairButtonEnabled" click.delegate="addThisPair()">Add this pair</button>
                 ${isAddPairButtonEnabled}
             </div>
             <div >
-                <a ak-button="k-enable.bind: false">Remove selected packages</a>            
+                <a ak-button="k-enabled.bind: false">Remove selected packages</a>            
             </div>            
         </div>
         <p></p>
