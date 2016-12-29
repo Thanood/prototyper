@@ -2,14 +2,17 @@
 	<require from="aurelia-kendoui-bridge/grid/grid"></require>
 	<require from="aurelia-kendoui-bridge/grid/col"></require>	
 
-    <div class="mpc-box">
-        <p>List of versions</p>
-        <!-- Note that "scrollable" object is being bound to the grid -->
-		<ak-grid k-data-source.bind="datasource"
-		      k-selectable="row"
-		      k-scrollable.bind="scrollable"
-		      k-on-change.delegate="rowSelected($event.detail)">
-			<ak-col k-title="Version" k-field="ver"></ak-col>
-		</ak-grid>
+    <div class="mpc-box" if.bind="package">
+      <p>List of versions for ${package}</p>
+      <!-- Note that "scrollable" object is being bound to the grid -->
+      <ak-grid k-data-source.bind="datasource"
+            k-selectable="row"
+            k-scrollable.bind="scrollable"
+            k-on-change.delegate="rowSelected($event.detail)">
+        <ak-col k-title="Version" k-field="ver"></ak-col>
+      </ak-grid>
+    </div>
+    <div class="mpc-box" if.bind="!package">
+      Choose a package.
     </div>
 </template>

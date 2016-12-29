@@ -1,64 +1,42 @@
+import {autoinject, bindable} from 'aurelia-framework';
+import {PackageService} from '../data/package-service';
+
+@autoinject()
 export class VersionChooser {
+  @bindable() public package;
+  public scrollable = { virtual: true };
+  private datasource: kendo.data.DataSource;
+  private versions = [];
 
-	datasource: kendo.data.DataSource;
+  constructor(private packageService: PackageService) {
+    this.datasource = new kendo.data.DataSource({
+      data: this.versions,
+      schema: {
+        model: {
+          fields: {
+          }
+        }
+      },
+      pageSize: 10
+    });
 
-	private versions = [
-		{ver: "3.2.1"},
-		{ver: "4.0.3"},
-		{ver: "4.1.0"},
-		{ver: "4.2.0"},
-		{ver: "4.3.0"},
-		{ver: "4.4.0"},
-		{ver: "4.5.0"},
-		{ver: "4.6.1"},
-		{ver: "4.6.3"},
-		{ver: "4.7.0"},
-		{ver: "4.7.1"},
-		{ver: "4.7.2"},
-		{ver: "4.7.3"},
-		{ver: "4.7.4"},
-		{ver: "4.7.5"},
-		{ver: "4.7.6"},
-		{ver: "4.7.7"},
-		{ver: "4.7.8"},
-		{ver: "4.7.9"},
-		{ver: "4.8.0"},
-		{ver: "4.7.1"},
-		{ver: "4.7.2"},
-		{ver: "4.7.3"},
-		{ver: "4.7.4"},
-		{ver: "4.7.5"},
-		{ver: "4.7.6"},
-		{ver: "4.7.7"},
-		{ver: "4.7.8"},
-		{ver: "4.7.9"},
-		{ver: "4.8.0"},
-		{ver: "4.8.1"},
-		{ver: "4.8.2"},
-		{ver: "4.8.3"},
-		{ver: "4.8.4"}
-	]
+  }
 
-	constructor() {
-		this.datasource = new kendo.data.DataSource({
-			data: this.versions,
-			schema: {
-				model: {
-					fields: {
-					}
-				}
-			},
-	    	pageSize: 10		
-		});
+  public rowSelected(e: kendo.ui.GridChangeEvent) {
+    // e.preventDefault();
+    // let grid = e.sender;
+    // let selectedRow = grid.select();
+    // let dataItem: string = grid.dataItem(selectedRow).ver;
+    // alert(dataItem);
+  }
 
-	}
-
-	public scrollable = {virtual : true};
-
-	rowSelected(e) {
-	    let grid = e.sender;
-	    let selectedRow = grid.select();
-	    let dataItem: string = grid.dataItem(selectedRow).ver;
-	    alert(dataItem);
-	}
+  public packageChanged(newValue) {
+    if (newValue) {
+      this.packageService.getVersions(newValue)
+      .then(versions => {
+        this.versions = versions;
+        this.datasource.data(this.versions);
+      });
+    }
+  }
 }
