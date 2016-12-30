@@ -42,6 +42,8 @@ export class VersionChooser {
   }
 
   public selectMostRecentVersion() {
-    this.grid.select('tr:eq(0)');
+    if (this.grid) {
+      this.grid.select('tr:eq(0)');
+    }
   }
 }
