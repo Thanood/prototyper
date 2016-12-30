@@ -1,32 +1,23 @@
+import {bindable} from 'aurelia-framework';
+
 export class CollectorComponent {
+  public packages = [];
+  public scrollable = { virtual: true };
 
-	//datasource: kendo.data.DataSource;
+  private datasource = new kendo.data.DataSource();
 
-	public scrollable = {virtual : true};
+  public addPackage(module: string, version: string) {
+    this.datasource.pushCreate({ fModule: module, fVersion: version });
+    this.packages.push({ fModule: module, fVersion: version });
+  }
 
-	private testData = [];
-
-	datasource = new kendo.data.DataSource({
-		transport: {
-			read: (options) => {
-
-			// here you can do an async API call to get your data
-			// or use a local array with data
-			// when you have all the data that you need you can call options.success()
-
-			// the options variable contains information about pagination, filtering etc so
-			// that can be used when doing an query
-
-			options.success(this.testData);
-			}
-		}
-	});
-
-	constructor() {
-		this.testData = [
-			{fModule: 'aurelia-kendoui-bridge', fVersion: '1.0.1'}
-		]
-
-	};
-	
+  public removeSelectedPackages() {
+    const d = this.datasource.data();
+    d.forEach(item => {
+      if ((item as any).fSelected) {
+        this.datasource.remove((item as any));
+      }
+    });
+    this.packages = (this.datasource.data() as any);
+  }
 }

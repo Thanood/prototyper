@@ -9,21 +9,21 @@
     <div class="container" style="border: 0px solid black">
         <div class="row">
             <div class="col-xs-3">
-                <package-chooser></package-chooser>
+                <package-chooser k-on-select.delegate="onPackageSelect($event.detail)"></package-chooser>
             </div>
             <div class="col-xs-2">
-                <version-chooser></version-chooser>
+                <version-chooser package.bind="selectedPackage" k-on-change.delegate="onVersionSelect($event.detail)"></version-chooser>
             </div>
            <div class="col-xs-5">
-                <collector-component></collector-component>
+                <collector-component view-model.ref="collector"></collector-component>
             </div>            
         </div>
         <div class="row flex-items-xs-center">
             <div class="col-xs-5">
-                <a ak-button="k-enable.bind: false">Add this pair</a>
+                <button ak-button="k-enabled.bind: isAddPairButtonEnabled" click.delegate="addPair()">Add this pair</button>
             </div>
             <div >
-                <a ak-button="k-enable.bind: false">Remove selected packages</a>            
+                <a ak-button="k-enabled.bind: true" click.delegate="removeSelected()">Remove selected packages</a>            
             </div>            
         </div>
         <p></p>

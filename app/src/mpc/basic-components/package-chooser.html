@@ -2,10 +2,9 @@
 	<require from="aurelia-kendoui-bridge/autocomplete/autocomplete"></require>
 	<require from="aurelia-kendoui-bridge/common/template"></require>
 
-	<div class="mpc-box" >
+	<div class="mpc-box">
 		<p>Package</p>
-		<ak-autocomplete k-data-source.bind="items"
-						 k-on-select.delegate="onSelect($event.detail)"
+		<ak-autocomplete k-data-source.two-way="items" k-on-select.delegate="onSelect($event.detail)" k-widget.bind="autocomplete">
 		    <input style="width: 98%;">
 		</ak-autocomplete>
 	</div>
