@@ -20,6 +20,19 @@ export class PackageChooser {
   // ];
   public autocomplete;
 
+  private datasource = new kendo.data.DataSource({
+    serverFiltering: true,
+    transport: {
+      read: (options) => {
+        this.packageService.getPackages(this.autocomplete.value())
+        .then(packages => {
+          this.items = (packages as any);
+          options.success(this.items);
+        });
+      }
+    }
+  });
+
   constructor(private packageService: PackageService) { }
 
   public attached() {
@@ -43,16 +56,20 @@ export class PackageChooser {
     // }, 1000);
 
     // so why does this work and not the above? :-)
-    this.packageService.getPackages()
-    .then(packages => {
-      this.items = (packages as any);
-      this.autocomplete.setDataSource(this.items);
-    });
+    // this.packageService.getPackages()
+    // .then(packages => {
+    //   this.items = (packages as any);
+    //   this.autocomplete.setDataSource(this.items);
+    // });
   }
 
   public onSelect(e) {
     // let autocomplete = e.sender;
     // let dataItem = autocomplete.dataItem(e.item.index());
     // alert(dataItem);
+  }
+
+  public onChange(e) {
+    console.log('PackageChooser onChange', e);
   }
 }

@@ -4,6 +4,7 @@ import {PackageService} from '../data/package-service';
 @autoinject()
 export class VersionChooser {
   @bindable() public package;
+  public grid: kendo.ui.Grid;
   public scrollable = { virtual: true };
   private datasource: kendo.data.DataSource;
   private versions = [];
@@ -37,6 +38,12 @@ export class VersionChooser {
         this.versions = versions;
         this.datasource.data(this.versions);
       });
+    }
+  }
+
+  public selectMostRecentVersion() {
+    if (this.grid) {
+      this.grid.select('tr:eq(0)');
     }
   }
 }

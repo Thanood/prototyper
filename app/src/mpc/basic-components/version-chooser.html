@@ -8,7 +8,9 @@
       <ak-grid k-data-source.bind="datasource"
             k-selectable="row"
             k-scrollable.bind="scrollable"
-            k-on-change.delegate="rowSelected($event.detail)">
+            k-on-change.delegate="rowSelected($event.detail)"
+            k-widget.bind="grid"
+            k-on-data-bound.delegate="selectMostRecentVersion()">
         <ak-col k-title="Version" k-field="ver"></ak-col>
       </ak-grid>
     </div>
