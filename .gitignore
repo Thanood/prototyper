@@ -16,3 +16,4 @@ app/dist
 
 app/dist/
 app/typings/
+npm-debug.log
