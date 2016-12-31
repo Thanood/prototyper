@@ -13,3 +13,6 @@ test/e2e/dist
 app/export
 /dist/
 app/dist
+
+app/dist/
+app/typings/
