@@ -6,7 +6,7 @@
 
     <div class="mpc-box">
     	<div if.bind="packages.length > 0">
-    		<p>List of (so far) chosen packages</p>
+        <p>List of (so far) chosen packages (${packages.length})</p>
 
 	    	<!-- Note that "scrollable" object is being bound to the grid -->
         <ak-grid k-data-source.bind="datasource"

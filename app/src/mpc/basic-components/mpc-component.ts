@@ -1,10 +1,11 @@
-import {computedFrom} from 'aurelia-framework';
+import {bindable, computedFrom} from 'aurelia-framework';
 import {CollectorComponent} from './collector-component';
 
 export class MpcComponent {
   public selectedPackage: string = null;
   public selectedVersion: string = null;
   public collector: CollectorComponent;
+  @bindable() public packages = [];
 
   @computedFrom('selectedPackage', 'selectedVersion')
   public get isAddPairButtonEnabled() {

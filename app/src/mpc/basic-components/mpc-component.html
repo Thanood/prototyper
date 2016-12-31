@@ -15,7 +15,7 @@
                 <version-chooser package.bind="selectedPackage" k-on-change.delegate="onVersionSelect($event.detail)"></version-chooser>
             </div>
            <div class="col-xs-5">
-                <collector-component view-model.ref="collector"></collector-component>
+                <collector-component packages.two-way="packages" view-model.ref="collector"></collector-component>
             </div>            
         </div>
         <div class="row flex-items-xs-center">
@@ -27,12 +27,11 @@
             </div>            
         </div>
         <p></p>
-        <div class="row flex-items-xs-center">
+        <!--<div class="row flex-items-xs-center">
             <div style="margin-bottom: 20px">
                 <button ak-button>Create project</button>
             </div>
-    
-        </div>        
+        </div>        -->
     </div>
 
 </template>

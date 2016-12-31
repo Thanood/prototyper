@@ -68,8 +68,4 @@ export class PackageChooser {
     // let dataItem = autocomplete.dataItem(e.item.index());
     // alert(dataItem);
   }
-
-  public onChange(e) {
-    console.log('PackageChooser onChange', e);
-  }
 }

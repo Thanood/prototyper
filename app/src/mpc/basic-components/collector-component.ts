@@ -1,7 +1,7 @@
 import {bindable} from 'aurelia-framework';
 
 export class CollectorComponent {
-  public packages = [];
+  @bindable() public packages = [];
   public scrollable = { virtual: true };
 
   private datasource = new kendo.data.DataSource();
@@ -19,5 +19,12 @@ export class CollectorComponent {
       }
     });
     this.packages = (this.datasource.data() as any);
+  }
+
+  public packagesChanged(newValue) {
+    newValue.forEach(pkg => {
+      // this.addPackage(pkg.fModule, pkg.fVersion);
+      this.datasource.pushCreate({ fModule: pkg.fModule, fVersion: pkg.fVersion });
+    });
   }
 }
