@@ -1,5 +1,6 @@
 <template>
-    <require from="aurelia-kendoui-bridge/tabstrip/tabstrip"></require>
+  <require from="aurelia-kendoui-bridge/button/button"></require>
+  <require from="aurelia-kendoui-bridge/tabstrip/tabstrip"></require>
 	<require from="./basic-components/mpc-component"></require>
 	<require from="./npm-components/npm"></require>
 
@@ -25,9 +26,18 @@
 	        </ul>
 
 	        <div>
-		        <div >
-		        	<mpc-component></mpc-component>
+		        <div>
+		        	<mpc-component packages.two-way="packages" view-model.ref="mpc"></mpc-component>
 		        </div>
+            <div class="row flex-items-xs-center">
+              <select value.bind="semverModifier">
+                <option selected value="=">=</option>
+                <option value="^">^</option>
+                <option value="~">~</option>
+              </select>
+              <button ak-button click.delegate="getSelectedPackages()">get selected packages from MPC</button>
+              <button ak-button click.delegate="addPredefinedPackages()">add predefined packages to MPC</button>
+            </div>
 	        </div>
 
 	        <div>

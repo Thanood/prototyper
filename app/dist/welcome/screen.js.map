@@ -1,1 +1,0 @@
-{"version":3,"sources":["welcome/screen.ts"],"names":[],"mappings":";AAAA;IAAA;QACE,YAAO,GAAG,iCAAiC,CAAC;IAC9C,CAAC;CAAA;AAFD,0BAEC","file":"screen.js","sourcesContent":["export class Welcome {\r\n  heading = 'Monterey prototyper application';\r\n}\r\n\r\n\r\n"],"sourceRoot":"/app/src"}
