@@ -1,10 +1,18 @@
-import {bindable} from 'aurelia-framework';
+import {bindable, autoinject, BindingEngine} from 'aurelia-framework';
 
+@autoinject()
 export class CollectorComponent {
   @bindable() public packages = [];
   public scrollable = { virtual: true };
 
   private datasource = new kendo.data.DataSource();
+
+  constructor(private bindingEngine: BindingEngine) {}
+
+  bind() {
+    this.bindingEngine.collectionObserver(this.packages)
+    .subscribe(() => this.packagesChanged(this.packages));
+  }
 
   public addPackage(module: string, version: string) {
     this.datasource.pushCreate({ fModule: module, fVersion: version });
@@ -22,6 +30,7 @@ export class CollectorComponent {
   }
 
   public packagesChanged(newValue) {
+    alert('Change')
     newValue.forEach(pkg => {
       // this.addPackage(pkg.fModule, pkg.fVersion);
       this.datasource.pushCreate({ fModule: pkg.fModule, fVersion: pkg.fVersion });
