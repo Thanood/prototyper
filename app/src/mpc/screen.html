@@ -26,18 +26,20 @@
 	        </ul>
 
 	        <div>
-		        <div>
+		        <div style="margin-bottom: 0x">
 		        	<mpc-component packages.two-way="packages" view-model.ref="mpc"></mpc-component>
 		        </div>
-            <div class="row flex-items-xs-center">
-              <select value.bind="semverModifier">
-                <option selected value="=">=</option>
-                <option value="^">^</option>
-                <option value="~">~</option>
-              </select>
-              <button ak-button click.delegate="getSelectedPackages()">get selected packages from MPC</button>
-              <button ak-button click.delegate="addPredefinedPackages()">add predefined packages to MPC</button>
-            </div>
+		        <p></p><p></p>
+	            <div class="row flex-items-xs-center" style="margin-bottom: 20px">
+	              <select value.bind="semverModifier">
+	                <option selected value="=">=</option>
+	                <option value="^">^</option>
+	                <option value="~">~</option>
+	              </select>
+	              &nbsp;<button ak-button click.delegate="getSelectedPackages()">get selected packages from MPC</button>
+	              &nbsp;&nbsp;&nbsp;&nbsp;
+	              <button ak-button click.delegate="addPredefinedPackages()">add predefined packages to MPC</button>
+	            </div>
 	        </div>
 
 	        <div>

@@ -3,7 +3,7 @@
 	<require from="aurelia-kendoui-bridge/grid/col"></require>	
 
     <div class="mpc-box" if.bind="package">
-      <p>List of versions for ${package}</p>
+      <p>${package} &nbsp; versions</p>
       <!-- Note that "scrollable" object is being bound to the grid -->
       <ak-grid k-data-source.bind="datasource"
             k-selectable="row"
@@ -15,6 +15,6 @@
       </ak-grid>
     </div>
     <div class="mpc-box" if.bind="!package">
-      Choose a package.
+      Version
     </div>
 </template>
