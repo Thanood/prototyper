@@ -17,5 +17,8 @@
   border-bottom-style: none;
   border-left-style: none;
 }
+.horizontalRule {
+  border: solid 1px;
+}
 
 /*# sourceMappingURL=prototyper.css.map */
