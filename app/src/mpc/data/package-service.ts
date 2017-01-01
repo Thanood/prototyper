@@ -5,34 +5,22 @@ import {HttpClient} from 'aurelia-fetch-client';
 export class PackageService {
   constructor(private loader: Loader, private http: HttpClient) { }
 
-  public getPackages(query: string) {
-    // return new Promise(resolve => {
-    //   resolve([
-    //     'aurelia-kendoui-bridge',
-    //     'aurelia-materialize-bridge',
-    //     'bootstrap3',
-    //     'd3',
-    //     'dragula',
-    //     'drop',
-    //     'font-awesome',
-    //     'jquery-ui',
-    //     'jquery',
-    //     'lodash',
-    //     'mdl',
-    //     'tether'
-    //   ]);
-    // });
-    return this.http.fetch(`https://api.npms.io/v2/search?q=${query}`)
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error(response.statusText);
-      }
-    })
-    .then(packages => {
-      return (packages as any).results.map(pkg => pkg.package.name);
-    });
+  public getPackages(query: string): Promise<string[]> {
+    if (query) {
+      return this.http.fetch(`https://api.npms.io/v2/search?q=${query}`)
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error(response.statusText);
+        }
+      })
+      .then(packages => {
+        return (packages as any).results.map(pkg => pkg.package.name);
+      });
+    } else {
+      return Promise.resolve([]);
+    }
   }
 
   public getVersions(pkg: string) {

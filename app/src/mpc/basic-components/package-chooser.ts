@@ -1,71 +1,38 @@
-import {autoinject, bindable, Loader} from 'aurelia-framework';
+import {autoinject} from 'aurelia-framework';
 import {PackageService} from '../data/package-service';
 
 @autoinject()
 export class PackageChooser {
   public items = [];
-  // public items = [
-  //   'aurelia-kendoui-bridge',
-  //   'aurelia-materialize-bridge',
-  //   'bootstrap3',
-  //   'd3',
-  //   'dragula',
-  //   'drop',
-  //   'font-awesome',
-  //   'jquery-ui',
-  //   'jquery',
-  //   'lodash',
-  //   'mdl',
-  //   'tether'
-  // ];
   public autocomplete;
 
+  // tslint:disable-next-line:no-unused-variable
   private datasource = new kendo.data.DataSource({
     serverFiltering: true,
     transport: {
       read: (options) => {
         this.packageService.getPackages(this.autocomplete.value())
         .then(packages => {
-          this.items = (packages as any);
+          this.items = packages;
           options.success(this.items);
         });
       }
     }
   });
 
-  constructor(private packageService: PackageService) { }
-
-  public attached() {
-    // todo: read from filesystem abstraction
-    // setTimeout(() => {
-      // this.items = [
-      //   'aurelia-kendoui-bridge',
-      //   'aurelia-materialize-bridge',
-      //   'bootstrap3',
-      //   'd3',
-      //   'dragula',
-      //   'drop',
-      //   'font-awesome',
-      //   'jquery-ui',
-      //   'jquery',
-      //   'lodash',
-      //   'mdl',
-      //   'tether'
-      // ];
-      // this.autocomplete.setDataSource(this.items);
-    // }, 1000);
-
-    // so why does this work and not the above? :-)
-    // this.packageService.getPackages()
-    // .then(packages => {
-    //   this.items = (packages as any);
-    //   this.autocomplete.setDataSource(this.items);
-    // });
-  }
+  constructor(private element: Element, private packageService: PackageService) { }
 
   public onSelect(e) {
-    // let autocomplete = e.sender;
-    // let dataItem = autocomplete.dataItem(e.item.index());
-    // alert(dataItem);
+    // let grid = e.sender;
+    // let selectedRow = grid.select();
+    // let dataItem: string = (grid.dataItem(selectedRow) as any).ver;
+    const event = new CustomEvent('package-selected', { bubbles: true, detail: { package: e.dataItem } });
+    this.element.dispatchEvent(event);
+  }
+
+  public onFiltering() {
+    // keep this to fire/propagate kendo event
+    const event = new CustomEvent('package-filtering', { bubbles: true, detail: { value: this.autocomplete.value() } });
+    this.element.dispatchEvent(event);
   }
 }

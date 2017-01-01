@@ -4,7 +4,12 @@
 
 	<div class="mpc-box">
 		<p>Package</p>
-		<ak-autocomplete k-data-source.two-way="datasource" k-on-select.delegate="onSelect($event.detail)" k-widget.bind="autocomplete">
+		<ak-autocomplete
+      k-data-source.two-way="datasource"
+      k-on-filtering.delegate="onFiltering()"
+      k-on-select.delegate="onSelect($event.detail)"
+      k-widget.bind="autocomplete"
+    >
 		    <input style="width: 98%;">
 		</ak-autocomplete>
 	</div>
