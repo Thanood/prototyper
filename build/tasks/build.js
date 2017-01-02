@@ -23,7 +23,7 @@ gulp.task('build-system', function() {
   }
   
   return gulp.src(paths.dtsSrc.concat(paths.source))
-    .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
+    // .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
     .pipe(changed(paths.output, {extension: '.ts'}))
     .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(typescript(typescriptCompiler))
@@ -41,7 +41,7 @@ gulp.task('build-html', function() {
 gulp.task('build-less', function() {
   return gulp.src(['app/styles/less/prototyper/index.less'])
     .pipe(sourcemaps.init())
-    .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
+    // .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
     .pipe(less())
     .pipe(rename('prototyper.css'))
     .pipe(sourcemaps.write('./'))
