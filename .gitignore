@@ -9,11 +9,9 @@ coverage
 test/e2e/dist
 /app/styles/*.css
 /app/styles/*.css.map
-/typings
 app/export
 /dist/
 app/dist
 
 app/dist/
-app/typings/
 npm-debug.log

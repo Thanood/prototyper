@@ -1,7 +1,5 @@
+import {Package} from './package';
 
-import {bindable, autoinject, BindingEngine} from 'aurelia-framework';
-
-@autoinject()
 export class CollectorComponent {
   public scrollable = { virtual: true };
 
@@ -9,17 +7,27 @@ export class CollectorComponent {
     pageSize: 10
   });
 
-  constructor(private bindingEngine: BindingEngine) {}
-
-  bind() {
-    this.bindingEngine.collectionObserver(this.packages)
-    .subscribe(() => this.packagesChanged(this.packages));
+  // tslint:disable-next-line:variable-name
+  private _packages: Package[] = [];
+  public get packages() {
+    return this._packages;
   }
 
-  public addPackage(module: string, version: string) {
-    this.datasource.pushCreate({ fModule: module, fVersion: version });
-    this.packages.push({ fModule: module, fVersion: version });
+  public addPackage(pkg: Package) {
+    if (!this.isDuplicate(pkg)) {
+      this.datasource.add(pkg);
+      this.setPackagesFromDataSource();
+    }
+  }
 
+  public getPackages(): Package[] {
+    return this._packages;
+  }
+
+  // somehow, computedFrom throws errors if used like this
+  // @computedFrom('packages')
+  public hasPackages(): boolean {
+    return this._packages.length > 0;
   }
 
   public removeSelectedPackages() {
@@ -45,12 +53,11 @@ export class CollectorComponent {
     return !!item;
   }
 
-  public packagesChanged(newValue) {
-    alert('Change')
-    newValue.forEach(pkg => {
-      // this.addPackage(pkg.fModule, pkg.fVersion);
-      this.datasource.pushCreate({ fModule: pkg.fModule, fVersion: pkg.fVersion });
-
+  private setPackagesFromDataSource() {
+    const data = this.datasource.data();
+    this._packages = data.map(d => {
+      const dataset = d as any;
+      return { fModule: dataset.fModule, fVersion: dataset.fVersion, fSelected: (dataset.fSelected ? true : false) };
     });
   }
 }

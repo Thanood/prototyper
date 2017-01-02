@@ -15,7 +15,9 @@ export class Screen {
   }
 
   public addPredefinedPackages() {
-    this.packages.push({ fModule: 'aurelia-kendoui-bridge', fVersion: '1.0.1'});
-    this.packages.push({ fModule: 'jquery', fVersion: '3.0.0'});
+    this.mpc.addPackages([
+      { fModule: 'aurelia-kendoui-bridge', fVersion: '1.0.1'},
+      { fModule: 'jquery', fVersion: '3.0.0'}
+    ]);
   }
 }
