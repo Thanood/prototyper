@@ -4,7 +4,7 @@ import {PackageService} from '../data/package-service';
 @autoinject()
 export class PackageChooser {
   public items = [];
-  public autocomplete;
+  public autocomplete: kendo.ui.AutoComplete;
 
   // tslint:disable-next-line:no-unused-variable
   private datasource = new kendo.data.DataSource({
@@ -21,6 +21,10 @@ export class PackageChooser {
   });
 
   constructor(private element: Element, private packageService: PackageService) { }
+
+  public clear() {
+    this.autocomplete.value('');
+  }
 
   public onSelect(e) {
     // let grid = e.sender;
