@@ -9,7 +9,7 @@ export class VersionChooser {
   private datasource: kendo.data.DataSource;
   private versions = [];
 
-  constructor(private packageService: PackageService) {
+  constructor(private element: Element, private packageService: PackageService) {
     this.datasource = new kendo.data.DataSource({
       data: this.versions,
       schema: {
@@ -24,11 +24,11 @@ export class VersionChooser {
   }
 
   public rowSelected(e: kendo.ui.GridChangeEvent) {
-    // e.preventDefault();
-    // let grid = e.sender;
-    // let selectedRow = grid.select();
-    // let dataItem: string = grid.dataItem(selectedRow).ver;
-    // alert(dataItem);
+    let grid = e.sender;
+    let selectedRow = grid.select();
+    let dataItem: string = (grid.dataItem(selectedRow) as any).ver;
+    const event = new CustomEvent('version-selected', { bubbles: true, detail: { version: dataItem } });
+    this.element.dispatchEvent(event);
   }
 
   public packageChanged(newValue) {
@@ -38,6 +38,9 @@ export class VersionChooser {
         this.versions = versions;
         this.datasource.data(this.versions);
       });
+    } else {
+      this.versions = [];
+      this.datasource.data(this.versions);
     }
   }
 

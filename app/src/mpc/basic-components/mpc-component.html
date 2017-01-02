@@ -1,37 +1,31 @@
 <template>
-    <require from="aurelia-kendoui-bridge/button/button"></require>
+  <require from="aurelia-kendoui-bridge/button/button"></require>
 
-    <require from="./package-chooser"></require>
-    <require from="./version-chooser"></require>
-    <require from="./collector-component"></require>
-    
+  <require from="./package-chooser"></require>
+  <require from="./version-chooser"></require>
+  <require from="./collector-component"></require>
 
-    <div class="container" style="border: 0px solid black">
-        <div class="row">
-            <div class="col-xs-3">
-                <package-chooser k-on-select.delegate="onPackageSelect($event.detail)"></package-chooser>
-            </div>
-            <div class="col-xs-2">
-                <version-chooser package.bind="selectedPackage" k-on-change.delegate="onVersionSelect($event.detail)"></version-chooser>
-            </div>
-           <div class="col-xs-5">
-                <collector-component packages.two-way="packages" view-model.ref="collector"></collector-component>
-            </div>            
-        </div>
-        <div class="row flex-items-xs-center">
-            <div class="col-xs-5">
-                <button ak-button="k-enabled.bind: isAddPairButtonEnabled" click.delegate="addPair()">Add this pair</button>
-            </div>
-            <div >
-                <a ak-button="k-enabled.bind: true" click.delegate="removeSelected()">Remove selected packages</a>            
-            </div>            
-        </div>
-        <p></p>
-        <!--<div class="row flex-items-xs-center">
-            <div style="margin-bottom: 20px">
-                <button ak-button>Create project</button>
-            </div>
-        </div>        -->
+
+  <div class="container" style="border: 0px solid black">
+    <div class="row">
+      <div class="col-xs-3">
+        <package-chooser package-filtering.delegate="onFiltering()" package-selected.delegate="onPackageSelect($event.detail)"></package-chooser>
+      </div>
+      <div class="col-xs-2">
+        <version-chooser package.bind="selectedPackage" version-selected.delegate="onVersionSelect($event.detail)"></version-chooser>
+      </div>
+      <div class="col-xs-5">
+        <collector-component view-model.ref="collector"></collector-component>
+      </div>
     </div>
+    <div class="row flex-items-xs-center">
+      <div class="col-xs-5">
+        <button ak-button="k-enabled.bind: isAddPairButtonEnabled" click.delegate="addPair()">Add this pair</button>
+      </div>
+      <div>
+        <a ak-button="k-enabled.bind: isRemoveButtonEnabled" click.delegate="removeSelected()">Remove selected packages</a>
+      </div>
+    </div>
+  </div>
 
 </template>
