@@ -1,15 +1,42 @@
-@greenColor: #7bab2e;
+@boxBorderColor: #7bab2e;
+@boxBackgroundColor: lighten(@boxBorderColor, 40%);
 @boxHeight: 400px;
 
+mpc-component {
+  .container {
+    .row {
+      display: block;
 
-.mpc-box {
-  
-  height: @boxHeight;
-  margin: 20px auto 0px auto;
-  padding: 20px;
-  border: 1px solid @greenColor;
-  background-color: lighten(@greenColor, 40%);
-  margin-bottom: 20px;
+      .mpc-box {
+        height: @boxHeight;
+        margin: 20px auto 0px auto;
+        padding: 20px;
+        border: 1px solid @boxBorderColor;
+        background-color: @boxBackgroundColor;
+        margin-bottom: 20px;
+      }
+
+      package-chooser {
+        display: block;
+        float: left;
+        margin: 0 15px 0 0;
+        width: 300px;
+      }
+
+      version-chooser {
+        display: block;
+        float: left;
+        margin: 0 15px 0 0;
+        width: 200px;
+      }
+
+      collector-component {
+        display: block;
+        float: left;
+        width: 530px;	
+      }
+    }
+  }
 }
 
 .centeredObject {

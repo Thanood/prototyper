@@ -8,17 +8,9 @@
 
   <div class="container" style="border: 0px solid black">
     <div class="row">
-      <div class="col-xs-3">
-        <package-chooser
-          package-filtering.delegate="onFiltering()"
-          package-selected.delegate="onPackageSelect($event.detail)"
-          view-model.ref="packageChooser"
-        ></package-chooser>
-      </div>
-      <div class="col-xs-2">
+      <div>
+        <package-chooser package-filtering.delegate="onFiltering()" package-selected.delegate="onPackageSelect($event.detail)" view-model.ref="packageChooser"></package-chooser>
         <version-chooser package.bind="selectedPackage" version-selected.delegate="onVersionSelect($event.detail)"></version-chooser>
-      </div>
-      <div class="col-xs-5">
         <collector-component view-model.ref="collector"></collector-component>
       </div>
     </div>
