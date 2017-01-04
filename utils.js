@@ -4,42 +4,42 @@
  *  Rebuild native modules under app/node_modules
  *  Necessary to compile pty.js which is used for the terminal
  ************************************************************************/
-var rebuildNative = () => {
+// var rebuildNative = () => {
 
-  //misc vars
-  var installNodeHeaders = require('electron-rebuild').installNodeHeaders;
-  var rebuildNativeModules = require('electron-rebuild').rebuildNativeModules;
-  var shouldRebuildNativeModules = require('electron-rebuild').shouldRebuildNativeModules;
-  var preGypFixRun = require('electron-rebuild').preGypFixRun;
-  var childProcess = require('child_process');
-  var path = require("path");
-  var pathToElectron = path.join(__dirname, '/node_modules/electron-prebuilt/dist/electron');
-  console.log("Using electron for building:")
-  console.log(pathToElectron);
-  var modulesPath = path.join(__dirname, '/app/node_modules');
-  console.log("Rebuilding native modules in:")
-  console.log(modulesPath)
+//   //misc vars
+//   var installNodeHeaders = require('electron-rebuild').installNodeHeaders;
+//   var rebuildNativeModules = require('electron-rebuild').rebuildNativeModules;
+//   var shouldRebuildNativeModules = require('electron-rebuild').shouldRebuildNativeModules;
+//   var preGypFixRun = require('electron-rebuild').preGypFixRun;
+//   var childProcess = require('child_process');
+//   var path = require("path");
+//   var pathToElectron = path.join(__dirname, '/node_modules/electron-prebuilt/dist/electron');
+//   console.log("Using electron for building:")
+//   console.log(pathToElectron);
+//   var modulesPath = path.join(__dirname, '/app/node_modules');
+//   console.log("Rebuilding native modules in:")
+//   console.log(modulesPath)
 
-  shouldRebuildNativeModules(pathToElectron)
-    .then((shouldBuild) => {
-      if (!shouldBuild) return true;
+//   shouldRebuildNativeModules(pathToElectron)
+//     .then((shouldBuild) => {
+//       if (!shouldBuild) return true;
 
-      var electronVersion = childProcess.execSync(`${pathToElectron} --version`, {
-        encoding: 'utf8',
-      });
-      electronVersion = electronVersion.match(/v(\d+\.\d+\.\d+)/)[1];
+//       var electronVersion = childProcess.execSync(`${pathToElectron} --version`, {
+//         encoding: 'utf8',
+//       });
+//       electronVersion = electronVersion.match(/v(\d+\.\d+\.\d+)/)[1];
 
-      return installNodeHeaders(electronVersion)
-        .then(() => rebuildNativeModules(electronVersion, modulesPath))
-        .then(() => console.log("build success"))
-        .then(() => preGypFixRun('./app/node_modules/pty.js', true, pathToElectron))
-        .then(() => console.log("gypfix success"))
-    })
-    .catch((e) => {
-      console.error("Building modules didn't work!");
-      console.error(e.message);
-    });
-};
+//       return installNodeHeaders(electronVersion)
+//         .then(() => rebuildNativeModules(electronVersion, modulesPath))
+//         .then(() => console.log("build success"))
+//         .then(() => preGypFixRun('./app/node_modules/pty.js', true, pathToElectron))
+//         .then(() => console.log("gypfix success"))
+//     })
+//     .catch((e) => {
+//       console.error("Building modules didn't work!");
+//       console.error(e.message);
+//     });
+// };
 
 
 /************************************************************************
@@ -130,6 +130,6 @@ if (process.argv[2] === "-setup") {
   firstInstall();
 }
 
-if (process.argv[2] === "-rebuild-native") {
-  rebuildNative();
-}
+// if (process.argv[2] === "-rebuild-native") {
+//   rebuildNative();
+// }
