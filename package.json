@@ -1,12 +1,13 @@
 {
   "name": "prototyper",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Monterey mini-version, used for rapid prototypingof GUI comnponents",
   "keywords": [
     "aurelia",
     "monterey",
     "prototyping",
     "typescript",
+    "element-queries",
     "gui"
   ],
   "homepage": "",
