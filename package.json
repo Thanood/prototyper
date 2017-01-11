@@ -1,12 +1,13 @@
 {
   "name": "prototyper",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Monterey mini-version, used for rapid prototypingof GUI comnponents",
   "keywords": [
     "aurelia",
     "monterey",
     "prototyping",
     "typescript",
+    "element-queries",
     "gui"
   ],
   "homepage": "",
@@ -27,8 +28,7 @@
     "postinstall": "install-app-deps",
     "pack": "build --dir",
     "dist": "gulp clean-installer-dist && gulp build && build",
-    "setup": "node utils -setup && node utils -rebuild-native",
-    "rebuild-native": "node utils -rebuild-native"
+    "setup": "node utils -setup"
   },
   "directories": {
     "app": "app"
@@ -62,11 +62,9 @@
     "changelog": "^1.0.7",
     "conventional-changelog": "1.1.0",
     "del": "^2.2.1",
-    "devtron": "^1.4.0",
     "electron-builder": "5.26.0",
     "electron-connect": "^0.4.8",
-    "electron-prebuilt": "1.4.1",
-    "electron-rebuild": "^1.2.0",
+    "electron": "1.4.13",
     "es6-module-loader": "^0.17.11",
     "gulp": "^3.9.1",
     "gulp-bump": "^2.4.0",

@@ -4,24 +4,24 @@
 	<require from="aurelia-kendoui-bridge/grid/col"></require>
 	<require from="aurelia-kendoui-bridge/common/template"></require>
 
-    <div class="mpc-box">
-    	<div if.bind="packages.length > 0">
-        <p>List of (so far) chosen packages (${packages.length})</p>
+  <div class="mpc-box">
+  	<div if.bind="packages.length > 0">
+      <p>List of (so far) chosen packages (${packages.length})</p>
 
-	    	<!-- Note that "scrollable" object is being bound to the grid -->
-        <ak-grid k-data-source.bind="datasource"
-                k-scrollable.bind="scrollable">
-          <ak-col k-title="Module"  k-field="fModule"></ak-col>
-          <ak-col k-title="Version" k-width="140px" k-field="fVersion"></ak-col>
-          <ak-col k-title="Remove"  k-width="70px" k-field="fSelected">
-            <ak-template>
-              <input type="checkbox" checked.bind="fSelected" />
-            </ak-template>
-          </ak-col>
-			</ak-grid>    		
-    	</div>
-      <div if.bind="packages.length == 0">
-        Add a package/version pair.
-      </div>
+    	<!-- Note that "scrollable" object is being bound to the grid -->
+      <ak-grid k-data-source.bind="datasource"
+              k-scrollable.bind="scrollable">
+        <ak-col k-title="Module"  k-field="fModule"></ak-col>
+        <ak-col k-title="Version" k-width="140px" k-field="fVersion"></ak-col>
+        <ak-col k-title="Remove"  k-width="70px" k-field="fSelected">
+          <ak-template>
+            <input type="checkbox" checked.bind="fSelected" />
+          </ak-template>
+        </ak-col>
+		</ak-grid>    		
+  	</div>
+    <div if.bind="packages.length == 0">
+      Add a package/version pair.
     </div>
+  </div>
 </template>

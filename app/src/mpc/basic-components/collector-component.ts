@@ -1,4 +1,3 @@
-// import {computedFrom} from 'aurelia-framework';
 import {Package} from './package';
 
 export class CollectorComponent {

@@ -1,0 +1,43 @@
+<template>
+	<section class="au-animate">
+  	<require from="aurelia-kendoui-bridge/tabstrip/tabstrip"></require>
+  	<require from="./splitter-component"></require>
+  	<require from="./left-navbar"></require>
+
+		<div style="margin-top: 20px">
+			<h4>CSS Grid component</h4>
+		</div>
+
+    <div class="demo-section k-content" style="height: 500px">
+			<div id="tabstrip" ak-tabstrip="k-animation.bind: { open: { effects: 'fadeIn' } }" ak-tabstrip.ref="tabstripVM">
+				<ul>
+				  <li class="k-state-active">
+				    Tests
+				  </li>
+				  <li>
+				    MPC isolated from any context
+				  </li>
+				  <li>
+				    MPC in context of "NPM Package Manager"
+				  </li> 
+				</ul>
+
+				<div style="margin-top:10px">
+					<div class = "flex-container" style="margin-top:10px">
+						<splitter-component ></splitter-component>
+					</div>
+				</div>
+
+				<div style="margin-top:10px">
+
+					MPC isolated from any context
+				</div>
+
+				<div style="margin-top:10px">
+			    Spare
+				</div>
+			</div>
+	  </div>
+
+	</section>
+</template>
